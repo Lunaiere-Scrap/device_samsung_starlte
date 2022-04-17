@@ -11,6 +11,10 @@ function blob_fixup() {
 	vendor/lib/hw/audio.primary.exynos9810.so)
 	    "${PATCHELF}" --replace-needed libvndsecril-client.so libsecril-client.so "${2}"
             ;;
+        vendor/lib/hw/audio.primary.exynos9810.so)
+            "${PATCHELF}" --add-needed libshim_audioparams.so "${2}"
+            sed -i 's/str_parms_get_str/str_parms_get_mod/g' "${2}"
+            ;;
 	vendor/lib*/libwrappergps.so)
 	    "${PATCHELF}" --replace-needed libvndsecril-client.so libsecril-client.so "${2}"
 	    ;;
