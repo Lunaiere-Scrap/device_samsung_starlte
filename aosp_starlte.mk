@@ -24,10 +24,20 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 $(call inherit-product, device/samsung/starlte/device.mk)
 
 # Boot Animation
-TARGET_SCREEN_HEIGHT := 2960
-TARGET_SCREEN_WIDTH := 1440
+TARGET_BOOT_ANIMATION_RES:= 1440
 
-## Inherit some common Pixel OS stuff
+# VoidUI Ethernity Maintainer Flags
+VOID_MAINTAINER := Miaウンメイ
+
+# Supported Device Flags (Gapps Specific flags)
+WITH_GAPPS := true
+IS_PHONE := true
+TARGET_FACE_UNLOCK_SUPPORTED := true
+TARGET_INCLUDE_STOCK_ARCORE := true
+TARGET_INCLUDE_LIVE_WALLPAPERS := true
+TARGET_SUPPORTS_QUICK_TAP  := true
+
+## Inherit some common VoidUI stuff
 $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 
 ## Device identifier, this must come after all inclusions
