@@ -24,14 +24,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o.mk)
 $(call inherit-product, device/samsung/starlte/device.mk)
 
 # Boot Animation
-TARGET_SCREEN_HEIGHT := 2960
-TARGET_SCREEN_WIDTH := 1440
+TARGET_BOOT_ANIMATION_RES := 1440
 
-## Inherit some common Pixel OS stuff
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+## Inherit some common ricedroid stuff
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
+
+# gapps build flag, if not defined build type is vanilla
+# GAPPS package is similar to core gapps
+WITH_GAPPS := true
+
+# maintainer flag
+RICE_MAINTAINER := Mia
+
+#Face unlock 
+TARGET_FACE_UNLOCK_SUPPORTED := true
 
 ## Device identifier, this must come after all inclusions
-PRODUCT_NAME := aosp_starlte
+PRODUCT_NAME := lineage_starlte
 PRODUCT_DEVICE := starlte
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := SM-G960F
